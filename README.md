@@ -39,10 +39,23 @@
 
 ### 配置密钥（勿提交仓库）
 
+编辑 **`src/main/resources/application-local.yml`**（已 gitignore，Spring 自动加载）：
+
+```yaml
+agentscope:
+  chat:
+    api-key: sk-your-deepseek-key
+  embedding:
+    api-key: your-zhipu-api-key
+```
+
+配好 Key 后直接 IDEA Run 或 `mvn spring-boot:run` 即可。
+
+**方式 B**：环境变量（可选）
+
 ```powershell
 $env:DEEPSEEK_API_KEY="sk-..."
 $env:ZHIPU_API_KEY="..."
-# 可选：复制 application-example.yml 为 application-local.yml
 ```
 
 ### 上传作业 PDF

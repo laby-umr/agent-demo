@@ -6,6 +6,8 @@ server:
 spring:
   application:
     name: ai-demo
+  config:
+    import: optional:classpath:application-local.yml
   mvc:
     async:
       request-timeout: 600000

@@ -15,5 +15,6 @@ data/
 *.trace.db
 tmp-*.json
 application-local.yml
+src/main/resources/application-local.yml
 .env
 .env.*

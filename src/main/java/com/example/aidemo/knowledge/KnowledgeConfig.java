@@ -1,6 +1,7 @@
 package com.example.aidemo.knowledge;
 
 import com.example.aidemo.config.AgentScopeProperties;
+import com.example.aidemo.config.ApiKeyStartupValidator;
 import io.agentscope.core.embedding.openai.OpenAITextEmbedding;
 import io.agentscope.core.model.ExecutionConfig;
 import io.agentscope.core.rag.Knowledge;
@@ -22,6 +23,7 @@ public class KnowledgeConfig {
 
     @Bean
     OpenAITextEmbedding textEmbedding(AgentScopeProperties properties) {
+        ApiKeyStartupValidator.requireKeys(properties);
         AgentScopeProperties.Embedding embedding = properties.embedding();
         ExecutionConfig executionConfig = ExecutionConfig.builder()
                 .timeout(Duration.ofSeconds(embedding.requestTimeoutSeconds()))
