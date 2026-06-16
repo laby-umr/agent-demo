@@ -1,0 +1,7 @@
+# 本地 API Key（Spring Boot 启动时自动加载）
+
+agentscope:
+  chat:
+    api-key:  # DeepSeek Key
+  embedding:
+    api-key:  # 智谱 Key

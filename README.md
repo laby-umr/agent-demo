@@ -39,7 +39,7 @@
 
 ### 配置密钥（勿提交仓库）
 
-编辑 **`src/main/resources/application-local.yml`**（已 gitignore，Spring 自动加载）：
+编辑 **`src/main/resources/application-local.yml`**（Spring 自动加载）：
 
 ```yaml
 agentscope:
