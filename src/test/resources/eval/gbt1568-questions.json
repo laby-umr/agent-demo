@@ -1,0 +1,39 @@
+[
+  {
+    "id": "q1-body",
+    "category": "正文",
+    "question": "本标准规定了什么内容？",
+    "expectRefuse": false
+  },
+  {
+    "id": "q2-table",
+    "category": "表格",
+    "question": "键的尺寸偏差或公差表格中有哪些要求？",
+    "expectRefuse": false
+  },
+  {
+    "id": "q3-clause",
+    "category": "条款",
+    "question": "GBT 1568-2008 的适用范围是什么？",
+    "expectRefuse": false
+  },
+  {
+    "id": "q4-no-answer",
+    "category": "无答案",
+    "question": "今天上海天气怎么样？",
+    "expectRefuse": true
+  },
+  {
+    "id": "q5-no-answer",
+    "category": "无答案",
+    "question": "请介绍 iPhone 17 的参数",
+    "expectRefuse": true
+  },
+  {
+    "id": "q6-vague",
+    "category": "模糊",
+    "question": "这个文件好不好？",
+    "expectRefuse": false,
+    "note": "可能 LOW 置信，不强制拒答"
+  }
+]

@@ -1,0 +1,102 @@
+server:
+  port: 8050
+  tomcat:
+    connection-timeout: 600000
+
+spring:
+  application:
+    name: ai-demo
+  mvc:
+    async:
+      request-timeout: 600000
+  datasource:
+    url: jdbc:h2:file:./data/rag-demo;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+
+agentscope:
+  chat:
+    base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com/v1}
+    api-key: ${DEEPSEEK_API_KEY:}
+    model: ${DEEPSEEK_MODEL:deepseek-chat}
+    request-timeout-seconds: 120
+  embedding:
+    base-url: ${ZHIPU_BASE_URL:https://open.bigmodel.cn/api/paas/v4}
+    api-key: ${ZHIPU_API_KEY:}
+    model: ${ZHIPU_EMBEDDING_MODEL:embedding-3}
+    dimensions: 2048
+    request-timeout-seconds: 120
+  milvus:
+    uri: ${MILVUS_URI:http://localhost:19530}
+    collection-name: ai_demo_embedding3
+    database-name: default
+    dimensions: 2048
+    metric-type: COSINE
+  rag:
+    top-k: 3
+    score-threshold: 0.3
+    enabled-for-chat: true
+  agent:
+    max-iters: 1
+  sample-knowledge-enabled: false
+
+document:
+  default-pdf-path:
+  auto-ingest-on-startup: false
+  ocr:
+    enabled: false
+    max-pages: 0
+
+ai:
+  document-parse:
+    enabled: true
+    default-engine: auto
+    mineru:
+      enabled: false
+      base-url: http://127.0.0.1:8000
+      parse-path: /api/v1/parse
+      timeout-ms: 300000
+    structured-chunk:
+      child-max-tokens: 512
+      child-overlap-tokens: 80
+      table-row-index-enabled: true
+      table-summary-enabled: true
+      embed-parent: false
+      parent-backfill-enabled: true
+  knowledge-retrieval:
+    enabled: true
+    default-top-k: 8
+    default-similarity-threshold: 0.60
+    retrieval-factor: 4
+    min-answer-score: 0.30
+    no-answer-policy: strict
+    min-evidence-overlap: 0.06
+    hybrid:
+      enabled: true
+      sparse-enabled: true
+      dense-weight: 1.0
+      sparse-weight: 1.2
+      rrf-k: 60
+    multi-query:
+      enabled: true
+      max-variants: 3
+    block-route:
+      enabled: true
+      table-cell-boost: 1.3
+      table-whole-boost: 1.1
+      table-summary-boost: 1.4
+    rerank:
+      enabled: false
+
+logging:
+  level:
+    com.example.aidemo: INFO
+    io.agentscope: INFO

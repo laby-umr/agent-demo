@@ -1,0 +1,9 @@
+AgentScope Java 是一个面向智能体的 Java 编程框架，支持 ReAct 推理、工具调用、记忆管理和多智能体协作。
+
+AgentScope 2.0 在 1.x 基础上进行了架构升级，引入了 Harness 工程能力，包括 workspace、长期记忆、会话持久化、子智能体和沙箱执行等。
+
+RAG（检索增强生成）可以让大语言模型在回答问题时参考外部知识库。AgentScope Java 通过 SimpleKnowledge 提供本地 RAG 能力，支持自定义嵌入模型和向量存储。
+
+在本 Demo 中，对话模型使用 google/gemma-4-e4b，嵌入模型使用 text-embedding-nomic-embed-text-v1.5，均通过本地 Ollama 服务调用。
+
+Spring Boot 负责提供 REST API，包括健康检查、知识库文档上传、知识检索和智能问答接口。
