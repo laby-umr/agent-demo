@@ -200,5 +200,3 @@ cd frontend && npm test
 - [x] 测试说明 → [docs/TEST.md](docs/TEST.md)  
 - [x] 演示截图 → [docs/DEMO.md](docs/DEMO.md)（代替视频）
 - [x] 无 API Key 入库（使用环境变量）
-
-提交邮箱：`yzzhang@kingdomai.com`
